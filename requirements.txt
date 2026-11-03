@@ -1,0 +1,6 @@
+tensorflow>=2.16,<2.22
+numpy>=1.26,<3
+matplotlib>=3.8,<4
+Pillow>=10,<13
+scikit-learn>=1.4,<2
+h5py>=3.10,<4
