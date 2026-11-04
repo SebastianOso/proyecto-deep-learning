@@ -10,6 +10,8 @@ Cuatro experimentos (base, dropout, aumento y combinado) y un modelo final combi
 - `quickdraw_comun.py`: entrenamiento, checkpoints, evaluación, exportación e inferencia.
 - `experimentos/` y `modelo_final.py`: arquitecturas y puntos de entrada.
 - `app.py`, `templates/` y `static/`: demo web local con Flask para dibujar y predecir.
+- `docs/`: versión estática para GitHub Pages, con predicciones en el navegador.
+- `exportar_web.py`: exportación reproducible del modelo H5 para la versión estática.
 
 ## Instalación
 
@@ -100,3 +102,20 @@ Abrir [http://127.0.0.1:5000](http://127.0.0.1:5000) en el navegador. Dibujar co
 Se carga una sola vez `modelos/final/modelo.h5`, con normalización dentro del modelo. La demo reutiliza el preprocesamiento de inferencia: inversión del fondo blanco, recorte, centrado y redimensionado a 28 × 28. No descarga el dataset, no entrena y no guarda los dibujos. Si el modelo falta o tiene dimensiones incompatibles, el servidor informa del error al iniciar.
 
 El servidor se ejecuta solo en el equipo local, en el puerto 5000 y sin modo debug. Para detenerlo, pulsar `Ctrl+C` en la terminal.
+
+## Versión estática para GitHub Pages
+
+`docs/` contiene la misma interfaz y una copia de inferencia del modelo para TensorFlow.js. Esta versión no usa Flask: el navegador descarga los pesos y calcula las predicciones localmente. Los dibujos no se envían a un servidor. La versión de Flask y todos los archivos de entrenamiento, ETL y EDA se conservan.
+
+TensorFlow.js 4.22.0 se incluye en `docs/vendor/` junto con su licencia Apache 2.0. No hay recursos externos de CDN. Los pesos exportados ocupan aproximadamente 0.88 MB, sin cuantización. El modelo se carga al pedir la primera predicción y se reutiliza en las siguientes.
+
+### Probar la versión estática
+
+Desde la raíz del repo, con cualquier Python 3 disponible:
+
+```sh
+python -m http.server 8000 --bind 127.0.0.1 --directory docs
+```
+
+Abrir [http://127.0.0.1:8000](http://127.0.0.1:8000). Este comando solo sirve archivos; la inferencia ocurre completamente en el navegador. No abrir el HTML con doble clic, porque el modelo necesita cargarse mediante HTTP. Para detener el servidor, pulsar `Ctrl+C`.
+
