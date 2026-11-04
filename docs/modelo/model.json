@@ -263,8 +263,8 @@
     ],
     "entrada": "float32_0_1",
     "origen": "modelos/final/modelo.h5",
-    "sha256_origen": "f71a72f16990a1ffc672c13acba51d926e530fbd68e8b2a6a88f0a49c15eb5b7",
-    "sha256_pesos": "18b0b4fa4d69b68e87062d4672a4ca328c69121615df5e249a088f39c4db2314",
+    "sha256_origen": "70f0c9c3cf75c4f11e9000c1d9851c94c10900c8a4a13cb34c5cc88aeb8dcd11",
+    "sha256_pesos": "c3e55d4b669a970af94134ff1831dec4270f08443b728a8b60d4199de1590a1e",
     "capas_solo_entrenamiento_omitidas": [
       "RandomRotation",
       "RandomTranslation",
