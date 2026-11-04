@@ -2,6 +2,8 @@
 
 CNN para diez categorías: gato, pez, bicicleta, avión, casa, árbol, reloj, paraguas, helado y estrella.
 
+**[Probar la demo en GitHub Pages](https://sebastianoso.github.io/proyecto-deep-learning/)**: dibuja en el lienzo y consulta la predicción directamente desde el navegador.
+
 El paper del proyecto está disponible en [quickdraw.pdf](quickdraw.pdf), ubicado en la raíz del repositorio. Describe la preparación de datos, los modelos y sus resultados.
 
 ## Instalación
