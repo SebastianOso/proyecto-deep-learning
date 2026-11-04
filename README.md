@@ -2,6 +2,8 @@
 
 CNN para diez categorías: gato, pez, bicicleta, avión, casa, árbol, reloj, paraguas, helado y estrella.
 
+El paper del proyecto está disponible en [quickdraw.pdf](quickdraw.pdf), ubicado en la raíz del repositorio. Describe la preparación de datos, los modelos y sus resultados.
+
 ## Instalación
 
 Crear y activar el entorno desde la raíz del repo, con Python 3.12.
