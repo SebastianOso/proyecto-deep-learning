@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>QuickDraw · Dibuja y adivina</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script src="{{ url_for('static', filename='app.js') }}" defer></script>
+</head>
+<body>
+  <div class="page">
+    <header class="masthead">
+      <a class="brand" href="/" aria-label="QuickDraw, inicio">
+        <svg viewBox="0 0 32 32" width="30" height="30" fill="none" aria-hidden="true">
+          <path d="m8 23 2-7L23 3l6 6-14 13-7 1Zm2-7 5 6M20 6l6 6M5 28c6-3 13 2 22-2" />
+        </svg>
+        QuickDraw<span class="brand-dot">.</span>
+      </a>
+    </header>
+
+    <main>
+      <section class="intro" aria-labelledby="title">
+        <h1 id="title">Dibuja algo. <span>¿Podré adivinarlo?</span></h1>
+        <p>Haz un boceto sencillo. El modelo intentará adivinar qué es.</p>
+      </section>
+
+      <section class="categories" aria-labelledby="categories-title">
+        <h2 id="categories-title">¿Qué puedes dibujar?</h2>
+        <ul>{% for clase in clases %}<li>{{ clase }}</li>{% endfor %}</ul>
+      </section>
+
+      <div class="workspace">
+        <section class="panel drawing-panel" aria-labelledby="drawing-title">
+          <div class="panel-heading">
+            <h2 id="drawing-title">Tu dibujo</h2>
+          </div>
+          <div class="canvas-wrap">
+            <canvas id="lienzo" width="280" height="280" aria-label="Lienzo para dibujar con ratón, lápiz o pantalla táctil" aria-describedby="canvas-help">
+              Tu navegador necesita admitir canvas para dibujar.
+            </canvas>
+          </div>
+          <p id="canvas-help" class="canvas-help">Dibuja con el ratón o con el dedo.</p>
+          <div class="actions">
+            <button id="predecir" class="button primary" type="button">Predecir</button>
+            <button id="limpiar" class="button secondary" type="button">Limpiar</button>
+          </div>
+        </section>
+
+        <section class="panel result-panel" aria-labelledby="result-title" aria-busy="false">
+          <div class="panel-heading">
+            <h2 id="result-title">Mi predicción es…</h2>
+          </div>
+          <div id="espera" class="empty-state">
+            <svg viewBox="0 0 110 100" width="110" height="100" fill="none" aria-hidden="true">
+              <path d="m55 10 10 26 29 3-22 19 7 29-25-15-25 15 6-28-21-20 29-3 12-26Z" />
+              <path d="m92 10 6-6M100 24l8-1M8 73l-6 5M12 89l4 7" />
+            </svg>
+            <p>Todo empieza con un trazo.</p>
+            <span>Dibuja algo y pulsa Predecir.</span>
+          </div>
+          <div id="resultado" hidden>
+            <p class="prediction-label">Mi primera opción</p>
+            <p id="clase-principal" class="prediction"></p>
+            <ol id="predicciones" class="predictions" aria-label="Tres clases con mayor puntuación"></ol>
+            <p class="result-note">Un boceto puede parecerse a varias cosas. Estas son las puntuaciones del modelo.</p>
+          </div>
+          <p id="estado" class="status" role="status" aria-live="polite" aria-atomic="true"></p>
+        </section>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
