@@ -10,3 +10,4 @@ modelos/
 *.keras
 curvas_entrenamiento.png
 .env
+paper/
