@@ -1,6 +1,6 @@
 """CNN con rotación y traslación de Keras durante entrenamiento.
 
-    .venv/bin/python experimentos/aumento.py --modo entrenar
+    python experimentos/aumento.py --modo entrenar
 """
 
 import sys

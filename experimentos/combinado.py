@@ -1,6 +1,6 @@
 """CNN del experimento que combina dropout y aumento de Keras.
 
-    .venv/bin/python experimentos/combinado.py --modo entrenar
+    python experimentos/combinado.py --modo entrenar
 """
 
 import sys

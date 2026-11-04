@@ -1,6 +1,6 @@
 """CNN del experimento de regularización con dropout de 0.3.
 
-    .venv/bin/python experimentos/dropout.py --modo entrenar
+    python experimentos/dropout.py --modo entrenar
 """
 
 import sys

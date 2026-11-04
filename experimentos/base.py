@@ -1,6 +1,6 @@
 """CNN base del notebook de experimentos, sin dropout ni aumento.
 
-    .venv/bin/python experimentos/base.py --modo entrenar
+    python experimentos/base.py --modo entrenar
 """
 
 import sys
